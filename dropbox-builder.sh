@@ -3,7 +3,7 @@
 APP=dropbox
 mkdir tmp
 cd ./tmp
-wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-$(uname -m).AppImage -O appimagetool
+wget -q $(wget -q https://api.github.com/repos/probonopd/go-appimage/releases -O - | grep -v zsync | grep -i continuous | grep -i appimagetool | grep -i x86_64 | grep browser_download_url | cut -d '"' -f 4 | head -1) -O appimagetool
 chmod a+x ./appimagetool
 
 DL=$(echo "https://aur.andontie.net/x86_64/$(wget -q https://aur.andontie.net/x86_64/ -O - | grep dropbox | head -1 | grep -o -P '(?<=href=").*(?=">dropbox)')")
@@ -26,6 +26,6 @@ exec "${HERE}"/opt/dropbox/dropbox "$@"
 EOF
 chmod a+x ./$APP.AppDir/AppRun
 
-ARCH=x86_64 ./appimagetool -n ./$APP.AppDir
+ARCH=x86_64 VERSION=$(./appimagetool -v | grep -o '[[:digit:]]*') ./appimagetool -s ./$APP.AppDir
 cd ..
 mv ./tmp/*.AppImage ./Dropbox-$VERSION-x86_64.AppImage
