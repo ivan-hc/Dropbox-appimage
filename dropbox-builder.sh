@@ -3,10 +3,10 @@
 APP=dropbox
 mkdir tmp
 cd ./tmp
-wget -q $(wget -q https://api.github.com/repos/probonopd/go-appimage/releases -O - | grep -v zsync | grep -i continuous | grep -i appimagetool | grep -i x86_64 | grep browser_download_url | cut -d '"' -f 4 | head -1) -O appimagetool
+wget -q "$(wget -q https://api.github.com/repos/probonopd/go-appimage/releases -O - | sed 's/"/ /g; s/ /\n/g' | grep -o 'https.*continuous.*tool.*86_64.*mage$')" -O appimagetool
 chmod a+x ./appimagetool
 
-DL=$(echo "https://aur.andontie.net/x86_64/$(wget -q https://aur.andontie.net/x86_64/ -O - | grep dropbox | head -1 | grep -o -P '(?<=href=").*(?=">dropbox)')")
+DL=$(echo "https://aur.andontie.net/x86_64/$(curl -Ls https://aur.andontie.net/x86_64/ | grep dropbox | head -1 | grep -o -P '(?<=href=").*(?=">dropbox)')")
 VERSION=$(echo $DL | grep -o -P '(?<=dropbox-).*(?=-x86)')
 wget $DL
 tar xf ./*.tar.zst
