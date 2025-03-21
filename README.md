@@ -1,8 +1,11 @@
-# Dropbox-appimage
 Unofficial AppImage of Dropbox built from AUR.
 
-------------------------------------------------------------------------
+--------------------------------------------------
+### NOTE: This wrapper is not verified by, affiliated with, or supported by Dropbox, Inc.
 
+**The base software is under a proprietary license and unofficially repackaged as an AppImage for demonstration purposes, for the original authors, to promote this packaging format to them. Consider this package as "experimental". I also invite you to request the authors to release an official AppImage, and if they agree, you can show this repository as a proof of concept.**
+
+--------------------------------------------------
 ## Install and update it with ease
 
 ### *"*AM*" Application Manager* 
