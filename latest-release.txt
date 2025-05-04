@@ -1,1 +1,1 @@
-https://github.com/ivan-hc/Dropbox-appimage/releases/download/continuous/Dropbox-220.4.4126-1-x86_64.AppImage
+https://github.com/ivan-hc/Dropbox-appimage/releases/download/continuous/Dropbox-223.4.4909-1-x86_64.AppImage
