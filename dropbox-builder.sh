@@ -15,7 +15,7 @@ mkdir $APP.AppDir
 mv ./opt ./$APP.AppDir
 mv ./usr ./$APP.AppDir
 cp ./$APP.AppDir/usr/share/applications/*desktop ./$APP.AppDir
-cp ./$APP.AppDir/usr/share/pixmaps/*svg ./$APP.AppDir
+cp ../*.png ./$APP.AppDir
 
 cat >> ./$APP.AppDir/AppRun << 'EOF'
 #!/bin/sh 
